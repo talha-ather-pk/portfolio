@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HR Analytics &amp; Employee Attrition | Talha Ather</title>
+  <meta name="description" content="Case study: a Power BI dashboard analysing attrition across 1,470 employees, built with Power Query and DAX measures.">
+  <link rel="canonical" href="https://talhaather.com/case-studies/hr-attrition.html">
+  <meta property="og:title" content="HR Analytics &amp; Employee Attrition | Talha Ather">
+  <meta property="og:image" content="https://talhaather.com/assets/screenshots/hr-attrition-dashboard.webp">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/styles.css">
+  <script>if (/[?&]todo/.test(location.search)) document.documentElement.classList.add("show-todo")</script>
+  <script defer data-domain="talhaather.com" src="https://plausible.io/js/script.file-downloads.outbound-links.tagged-events.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Main">
+        <a class="brand" href="/">Talha Ather</a>
+        <div class="nav-actions">
+          <a class="btn btn-outline btn-sm" href="/#projects">All projects</a>
+          <a class="btn btn-primary btn-sm" href="/assets/Talha-Ather-Resume.pdf" download>Resume</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="cs-hero">
+      <div class="container">
+        <a class="back" href="/#projects">← Back to all projects</a>
+        <span class="eyebrow">Portfolio project · public dataset</span>
+        <h1>HR Analytics &amp; Employee Attrition</h1>
+        <p class="lead">A Power BI dashboard that shows who is leaving, from where, and at what pay level, built so an HR manager can answer attrition questions without opening a spreadsheet.</p>
+        <dl class="cs-facts">
+          <div><dt>Employees analysed</dt><dd>1,470</dd></div>
+          <div><dt>Attrition</dt><dd>237 leavers (16.12%)</dd></div>
+          <div><dt>Tools</dt><dd>Power BI, Power Query, DAX</dd></div>
+          <div><dt>Data</dt><dd>IBM HR Attrition dataset</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="cs-body">
+      <div class="container prose">
+        <h2>The problem</h2>
+        <p>Attrition is expensive, but raw HR exports only list employees one row at a time. Management needs to see at a glance where people are leaving and which groups are most at risk, and to filter by department, gender and job role.</p>
+
+        <h2>Data sources</h2>
+        <p>The public <strong>IBM HR Analytics Employee Attrition</strong> dataset (<code>WA_Fn-UseC_-HR-Employee-Attrition</code>): one row per employee, with age, department, job role, business travel, monthly income, overtime, years at company and an attrition flag.</p>
+
+        <h2>Dashboard</h2>
+        <figure class="shot">
+          <a href="/assets/screenshots/hr-attrition-dashboard.webp" target="_blank" rel="noopener" title="Open full size"><img src="/assets/screenshots/hr-attrition-dashboard.webp" alt="HR Analytics dashboard in Power BI: 1,470 total employees, 1,233 active, 237 attrition, 16.12% attrition rate, average age 36.92, with charts of attrition by department, gender, job role, salary band, overtime and age group." width="1178" height="655" loading="lazy"></a>
+          <figcaption>Main view: KPI cards, attrition breakdowns, slicers for gender, department, attrition and job role, and a key insights panel.</figcaption>
+        </figure>
+
+        <h2>Approach</h2>
+        <p><strong>1. Prepare the data in Power Query.</strong> Promoted headers, set column types, removed fields the analysis didn't need, and added conditional columns to group employees into bands such as age group and salary band.</p>
+        <figure class="shot">
+          <a href="/assets/screenshots/hr-attrition-power-query.webp" target="_blank" rel="noopener" title="Open full size"><img src="/assets/screenshots/hr-attrition-power-query.webp" alt="Power Query editor showing the employee table and the applied steps: Source, Promoted Headers, Changed Type, Removed Columns, Added Conditional Column 1 to 4, Changed Type 2." width="1400" height="610" loading="lazy"></a>
+          <figcaption>Power Query applied steps: type changes, removed columns and four conditional columns.</figcaption>
+        </figure>
+        <p><strong>2. Build the measures in DAX.</strong> Total Employees, Active Employees, Attrition Count, Attrition Rate, Average Age, Average Monthly Income and Average Years at Company, all in a dedicated measures table.</p>
+        <p><strong>3. Check the numbers.</strong> Ran the measures in DAX query view to confirm the totals (1,470 employees, 237 attrition, 1,233 active) before building visuals on top of them.</p>
+        <figure class="shot">
+          <a href="/assets/screenshots/hr-attrition-dax.webp" target="_blank" rel="noopener" title="Open full size"><img src="/assets/screenshots/hr-attrition-dax.webp" alt="Power BI DAX query view evaluating the measures: Total Employees 1470, Attrition Count 237, Active Employees 1233, Attrition Rate 0.16." width="1400" height="560" loading="lazy"></a>
+          <figcaption>DAX query view used to validate the measures before building the report.</figcaption>
+        </figure>
+        <p><strong>4. Design for the question being asked.</strong> KPI cards across the top, breakdowns by department, gender, job role, salary band, overtime and age group below, and slicers so a manager can drill into one department or role.</p>
+
+        <h2>Tools</h2>
+        <p>Power BI Desktop, Power Query (M), DAX</p>
+
+        <h2>Outcome</h2>
+        <ul>
+          <li>Overall attrition is <strong>16.12%</strong>: 237 of 1,470 employees.</li>
+          <li><strong>Research &amp; Development</strong> has the most leavers (133), followed by Sales (92) and Human Resources (12).</li>
+          <li>The <strong>low salary band</strong> accounts for the most attrition (113 leavers), almost double the medium band (66).</li>
+          <li>Employees aged <strong>25–34</strong> are the largest group in the workforce (554).</li>
+        </ul>
+
+        <h2 class="todo-hide">Lessons learned</h2>
+        <p class="todo">1–2 honest lessons, e.g. counts vs rates: R&amp;D has the most leavers, but it is also the biggest department. Attrition rate by department would show which team actually loses people fastest.</p>
+
+        <div class="section-cta">
+          <!-- Fill href with a real URL to show; empty = hidden -->
+          <a class="btn btn-outline" href="" target="_blank" rel="noopener">Download .pbix</a>
+          <a class="btn btn-outline" href="" target="_blank" rel="noopener">Live report</a>
+          <a class="btn btn-primary" href="/#contact">Discuss a similar project</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2026 Talha Ather</p>
+      <p><a href="https://www.linkedin.com/in/talha-ather-702497376" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/talha-ather-pk" target="_blank" rel="noopener">GitHub</a></p>
+    </div>
+  </footer>
+</body>
+</html>

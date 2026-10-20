@@ -1,0 +1,11 @@
+# Private working notes (TODO list, deploy details)
+NOTES.md
+
+# Netlify CLI and build output
+.netlify/
+dist/
+
+# OS files
+desktop.ini
+Thumbs.db
+.DS_Store
