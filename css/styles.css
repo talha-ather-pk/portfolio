@@ -398,3 +398,6 @@ html:not(.show-todo) .todo-hide { display: none !important; }
 .pcard .tools { font-family: var(--mono); font-size: .74rem; color: var(--muted); margin-top: auto; padding-top: 8px; }
 .pcard .links { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: .9rem; }
 .pcard .links.soon { font-family: var(--mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+
+/* hero: jump straight to the work */
+.hero-meta .jump { color: var(--accent); font-weight: 600; }
